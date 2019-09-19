@@ -30,6 +30,8 @@ $(document).ready(function(){
   })
   })
   function makeButtons() {
+    $(".button-container").empty();
+
     searches.forEach(function(button){
       var newSearch = $("<button class= 'search-btn'>")
       newSearch.text(button)
@@ -39,7 +41,19 @@ $(document).ready(function(){
 
   };
 
+  $("#add-search").on("click", function(button) {
+    console.log("im in the function")
+    event.preventDefault();
+    var gifSearch = $("#search-input").val().trim();
+     if(!(searches.includes(gifSearch))){
+    searches.push(gifSearch);
+    makeButtons();
+    console.log(gifSearch)}
+  });
+
   makeButtons()
+
+ 
 
 
 
